@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		A93414492E87FB30009BF9F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A934142A2E87FB2E009BF9F8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A93414312E87FB2E009BF9F8;
-			remoteInfo = ShoppingCartCucumberish;
-		};
 		A93414532E87FB30009BF9F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A934142A2E87FB2E009BF9F8 /* Project object */;
@@ -25,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		A93414322E87FB2E009BF9F8 /* ShoppingCartCucumberish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCartCucumberish.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A93414482E87FB30009BF9F8 /* ShoppingCartCucumberishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingCartCucumberishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93414522E87FB30009BF9F8 /* ShoppingCartCucumberishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingCartCucumberishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,6 +28,62 @@
 				Info.plist,
 			);
 			target = A93414312E87FB2E009BF9F8 /* ShoppingCartCucumberish */;
+		};
+		A9F2E7D02E8C2AE700F7D8AD /* Exceptions for "ShoppingCartCucumberishUITests" folder in "ShoppingCartCucumberishUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Cucumberish/Core/Managers/CCIFeaturesManager.m,
+				Cucumberish/Core/Managers/CCILoggingManager.m,
+				Cucumberish/Core/Managers/CCIStepsManager.m,
+				Cucumberish/Core/Models/CCIArgument.m,
+				Cucumberish/Core/Models/CCIAroundHock.m,
+				Cucumberish/Core/Models/CCIBackground.m,
+				Cucumberish/Core/Models/CCIExample.m,
+				Cucumberish/Core/Models/CCIFeature.m,
+				Cucumberish/Core/Models/CCIHock.m,
+				Cucumberish/Core/Models/CCIJSONDumper.m,
+				Cucumberish/Core/Models/CCILocation.m,
+				Cucumberish/Core/Models/CCIScenarioDefinition.m,
+				Cucumberish/Core/Models/CCIStep.m,
+				Cucumberish/Core/Models/CCIStepDefinition.m,
+				Cucumberish/Cucumberish.m,
+				Cucumberish/Dependencies/Gherkin/GHAstBuilder.m,
+				Cucumberish/Dependencies/Gherkin/GHAstNode.m,
+				Cucumberish/Dependencies/Gherkin/GHBackground.m,
+				Cucumberish/Dependencies/Gherkin/GHComment.m,
+				Cucumberish/Dependencies/Gherkin/GHDataTable.m,
+				Cucumberish/Dependencies/Gherkin/GHDocString.m,
+				Cucumberish/Dependencies/Gherkin/GHExamples.m,
+				Cucumberish/Dependencies/Gherkin/GHFeature.m,
+				Cucumberish/Dependencies/Gherkin/GHGherkinDialect.m,
+				Cucumberish/Dependencies/Gherkin/GHGherkinDialectProvider.m,
+				Cucumberish/Dependencies/Gherkin/GHGherkinLanguageConstants.m,
+				Cucumberish/Dependencies/Gherkin/GHGherkinLanguageSetting.m,
+				Cucumberish/Dependencies/Gherkin/GHGherkinLine.m,
+				Cucumberish/Dependencies/Gherkin/GHGherkinLineSpan.m,
+				Cucumberish/Dependencies/Gherkin/GHLocation.m,
+				Cucumberish/Dependencies/Gherkin/GHNode.m,
+				Cucumberish/Dependencies/Gherkin/GHParser.m,
+				"Cucumberish/Dependencies/Gherkin/GHParser+Extensions.m",
+				Cucumberish/Dependencies/Gherkin/GHParserException.m,
+				Cucumberish/Dependencies/Gherkin/GHScenario.m,
+				Cucumberish/Dependencies/Gherkin/GHScenarioDefinition.m,
+				Cucumberish/Dependencies/Gherkin/GHScenarioOutline.m,
+				Cucumberish/Dependencies/Gherkin/GHStep.m,
+				Cucumberish/Dependencies/Gherkin/GHStepArgument.m,
+				Cucumberish/Dependencies/Gherkin/GHTableCell.m,
+				Cucumberish/Dependencies/Gherkin/GHTableRow.m,
+				Cucumberish/Dependencies/Gherkin/GHTag.m,
+				Cucumberish/Dependencies/Gherkin/GHToken.m,
+				Cucumberish/Dependencies/Gherkin/GHTokenMatcher.m,
+				Cucumberish/Dependencies/Gherkin/GHTokenScanner.m,
+				"Cucumberish/Dependencies/Gherkin/NSString+Trim.m",
+				"Cucumberish/Utils/NSArray+Hashes.m",
+				"Cucumberish/Utils/NSObject+Dictionary.m",
+				"Cucumberish/Utils/NSString+Formatter.m",
+				"Cucumberish/Utils/XCTestCase+RecordFailure.m",
+			);
+			target = A93414512E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -48,13 +96,11 @@
 			path = ShoppingCartCucumberish;
 			sourceTree = "<group>";
 		};
-		A934144B2E87FB30009BF9F8 /* ShoppingCartCucumberishTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ShoppingCartCucumberishTests;
-			sourceTree = "<group>";
-		};
 		A93414552E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A9F2E7D02E8C2AE700F7D8AD /* Exceptions for "ShoppingCartCucumberishUITests" folder in "ShoppingCartCucumberishUITests" target */,
+			);
 			path = ShoppingCartCucumberishUITests;
 			sourceTree = "<group>";
 		};
@@ -62,13 +108,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		A934142F2E87FB2E009BF9F8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A93414452E87FB30009BF9F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -89,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				A93414342E87FB2E009BF9F8 /* ShoppingCartCucumberish */,
-				A934144B2E87FB30009BF9F8 /* ShoppingCartCucumberishTests */,
 				A93414552E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */,
 				A93414332E87FB2E009BF9F8 /* Products */,
 			);
@@ -99,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				A93414322E87FB2E009BF9F8 /* ShoppingCartCucumberish.app */,
-				A93414482E87FB30009BF9F8 /* ShoppingCartCucumberishTests.xctest */,
 				A93414522E87FB30009BF9F8 /* ShoppingCartCucumberishUITests.xctest */,
 			);
 			name = Products;
@@ -130,36 +167,12 @@
 			productReference = A93414322E87FB2E009BF9F8 /* ShoppingCartCucumberish.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A93414472E87FB30009BF9F8 /* ShoppingCartCucumberishTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A93414602E87FB30009BF9F8 /* Build configuration list for PBXNativeTarget "ShoppingCartCucumberishTests" */;
-			buildPhases = (
-				A93414442E87FB30009BF9F8 /* Sources */,
-				A93414452E87FB30009BF9F8 /* Frameworks */,
-				A93414462E87FB30009BF9F8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A934144A2E87FB30009BF9F8 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A934144B2E87FB30009BF9F8 /* ShoppingCartCucumberishTests */,
-			);
-			name = ShoppingCartCucumberishTests;
-			packageProductDependencies = (
-			);
-			productName = ShoppingCartCucumberishTests;
-			productReference = A93414482E87FB30009BF9F8 /* ShoppingCartCucumberishTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		A93414512E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A93414632E87FB30009BF9F8 /* Build configuration list for PBXNativeTarget "ShoppingCartCucumberishUITests" */;
 			buildPhases = (
-				A934144E2E87FB30009BF9F8 /* Sources */,
 				A934144F2E87FB30009BF9F8 /* Frameworks */,
-				A93414502E87FB30009BF9F8 /* Resources */,
+				A9F2E7CF2E8C2AE700F7D8AD /* Sources */,
 			);
 			buildRules = (
 			);
@@ -189,10 +202,6 @@
 					A93414312E87FB2E009BF9F8 = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					A93414472E87FB30009BF9F8 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = A93414312E87FB2E009BF9F8;
-					};
 					A93414512E87FB30009BF9F8 = {
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = A93414312E87FB2E009BF9F8;
@@ -214,7 +223,6 @@
 			projectRoot = "";
 			targets = (
 				A93414312E87FB2E009BF9F8 /* ShoppingCartCucumberish */,
-				A93414472E87FB30009BF9F8 /* ShoppingCartCucumberishTests */,
 				A93414512E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */,
 			);
 		};
@@ -222,20 +230,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		A93414302E87FB2E009BF9F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A93414462E87FB30009BF9F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A93414502E87FB30009BF9F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -252,14 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A93414442E87FB30009BF9F8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A934144E2E87FB30009BF9F8 /* Sources */ = {
+		A9F2E7CF2E8C2AE700F7D8AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,11 +256,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A934144A2E87FB30009BF9F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A93414312E87FB2E009BF9F8 /* ShoppingCartCucumberish */;
-			targetProxy = A93414492E87FB30009BF9F8 /* PBXContainerItemProxy */;
-		};
 		A93414542E87FB30009BF9F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A93414312E87FB2E009BF9F8 /* ShoppingCartCucumberish */;
@@ -378,10 +360,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "SRC_ROOT=@\\\"$(SRCROOT)\\\"";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -439,6 +418,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "SRC_ROOT=@\\\"$(SRCROOT)\\\"";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -455,54 +435,23 @@
 			};
 			name = Release;
 		};
-		A93414612E87FB30009BF9F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberishTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingCartCucumberish.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ShoppingCartCucumberish";
-			};
-			name = Debug;
-		};
-		A93414622E87FB30009BF9F8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberishTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingCartCucumberish.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ShoppingCartCucumberish";
-			};
-			name = Release;
-		};
 		A93414642E87FB30009BF9F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "${SRCROOT}/ShoppingCartCucumberishUITests/Cucumberish/**";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberishUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingCartCucumberishUITests/ShoppingCartCucumberishUITests-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				"TEST_HOST[sdk=*]" = "";
 				TEST_TARGET_NAME = ShoppingCartCucumberish;
 			};
 			name = Debug;
@@ -512,11 +461,14 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "${SRCROOT}/ShoppingCartCucumberishUITests/Cucumberish/**";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberishUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingCartCucumberishUITests/ShoppingCartCucumberishUITests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ShoppingCartCucumberish;
@@ -540,15 +492,6 @@
 			buildConfigurations = (
 				A934145C2E87FB30009BF9F8 /* Debug */,
 				A934145D2E87FB30009BF9F8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A93414602E87FB30009BF9F8 /* Build configuration list for PBXNativeTarget "ShoppingCartCucumberishTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A93414612E87FB30009BF9F8 /* Debug */,
-				A93414622E87FB30009BF9F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
