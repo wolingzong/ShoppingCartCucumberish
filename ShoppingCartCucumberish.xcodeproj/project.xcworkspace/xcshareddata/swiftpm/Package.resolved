@@ -1,0 +1,15 @@
+{
+  "originHash" : "3518ba164bd62c6c951545d363fa0bf91b328ea0be02b4374222def3e71650d0",
+  "pins" : [
+    {
+      "identity" : "cucumberish",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Ahmed-Ali/Cucumberish",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e7b371812f6906a8cdaecdf5fb32327f9bb446ac"
+      }
+    }
+  ],
+  "version" : 3
+}

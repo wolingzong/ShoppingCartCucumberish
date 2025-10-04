@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A90C29F92E90A2EA00060D1D /* Cucumberish in Frameworks */ = {isa = PBXBuildFile; productRef = A90C29F82E90A2EA00060D1D /* Cucumberish */; };
+		A9B550242E90F2A500A62B38 /* Features in Resources */ = {isa = PBXBuildFile; fileRef = A9B550232E90F29F00A62B38 /* Features */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A93414532E87FB30009BF9F8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -19,71 +24,18 @@
 /* Begin PBXFileReference section */
 		A93414322E87FB2E009BF9F8 /* ShoppingCartCucumberish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingCartCucumberish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93414522E87FB30009BF9F8 /* ShoppingCartCucumberishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingCartCucumberishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A94449062E908B74001E2F52 /* libCucumberish.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCucumberish.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A96F80D72E8DDA6D0022933D /* libCucumberish.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libCucumberish.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B550232E90F29F00A62B38 /* Features */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Features; path = ShoppingCartCucumberish/Features; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		A934145A2E87FB30009BF9F8 /* Exceptions for "ShoppingCartCucumberish" folder in "ShoppingCartCucumberish" target */ = {
+		A90C2A262E90E23800060D1D /* Exceptions for "ShoppingCartCucumberish" folder in "ShoppingCartCucumberish" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
 			target = A93414312E87FB2E009BF9F8 /* ShoppingCartCucumberish */;
-		};
-		A9F2E7D02E8C2AE700F7D8AD /* Exceptions for "ShoppingCartCucumberishUITests" folder in "ShoppingCartCucumberishUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Cucumberish/Core/Managers/CCIFeaturesManager.m,
-				Cucumberish/Core/Managers/CCILoggingManager.m,
-				Cucumberish/Core/Managers/CCIStepsManager.m,
-				Cucumberish/Core/Models/CCIArgument.m,
-				Cucumberish/Core/Models/CCIAroundHock.m,
-				Cucumberish/Core/Models/CCIBackground.m,
-				Cucumberish/Core/Models/CCIExample.m,
-				Cucumberish/Core/Models/CCIFeature.m,
-				Cucumberish/Core/Models/CCIHock.m,
-				Cucumberish/Core/Models/CCIJSONDumper.m,
-				Cucumberish/Core/Models/CCILocation.m,
-				Cucumberish/Core/Models/CCIScenarioDefinition.m,
-				Cucumberish/Core/Models/CCIStep.m,
-				Cucumberish/Core/Models/CCIStepDefinition.m,
-				Cucumberish/Cucumberish.m,
-				Cucumberish/Dependencies/Gherkin/GHAstBuilder.m,
-				Cucumberish/Dependencies/Gherkin/GHAstNode.m,
-				Cucumberish/Dependencies/Gherkin/GHBackground.m,
-				Cucumberish/Dependencies/Gherkin/GHComment.m,
-				Cucumberish/Dependencies/Gherkin/GHDataTable.m,
-				Cucumberish/Dependencies/Gherkin/GHDocString.m,
-				Cucumberish/Dependencies/Gherkin/GHExamples.m,
-				Cucumberish/Dependencies/Gherkin/GHFeature.m,
-				Cucumberish/Dependencies/Gherkin/GHGherkinDialect.m,
-				Cucumberish/Dependencies/Gherkin/GHGherkinDialectProvider.m,
-				Cucumberish/Dependencies/Gherkin/GHGherkinLanguageConstants.m,
-				Cucumberish/Dependencies/Gherkin/GHGherkinLanguageSetting.m,
-				Cucumberish/Dependencies/Gherkin/GHGherkinLine.m,
-				Cucumberish/Dependencies/Gherkin/GHGherkinLineSpan.m,
-				Cucumberish/Dependencies/Gherkin/GHLocation.m,
-				Cucumberish/Dependencies/Gherkin/GHNode.m,
-				Cucumberish/Dependencies/Gherkin/GHParser.m,
-				"Cucumberish/Dependencies/Gherkin/GHParser+Extensions.m",
-				Cucumberish/Dependencies/Gherkin/GHParserException.m,
-				Cucumberish/Dependencies/Gherkin/GHScenario.m,
-				Cucumberish/Dependencies/Gherkin/GHScenarioDefinition.m,
-				Cucumberish/Dependencies/Gherkin/GHScenarioOutline.m,
-				Cucumberish/Dependencies/Gherkin/GHStep.m,
-				Cucumberish/Dependencies/Gherkin/GHStepArgument.m,
-				Cucumberish/Dependencies/Gherkin/GHTableCell.m,
-				Cucumberish/Dependencies/Gherkin/GHTableRow.m,
-				Cucumberish/Dependencies/Gherkin/GHTag.m,
-				Cucumberish/Dependencies/Gherkin/GHToken.m,
-				Cucumberish/Dependencies/Gherkin/GHTokenMatcher.m,
-				Cucumberish/Dependencies/Gherkin/GHTokenScanner.m,
-				"Cucumberish/Dependencies/Gherkin/NSString+Trim.m",
-				"Cucumberish/Utils/NSArray+Hashes.m",
-				"Cucumberish/Utils/NSObject+Dictionary.m",
-				"Cucumberish/Utils/NSString+Formatter.m",
-				"Cucumberish/Utils/XCTestCase+RecordFailure.m",
-			);
-			target = A93414512E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -91,16 +43,13 @@
 		A93414342E87FB2E009BF9F8 /* ShoppingCartCucumberish */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				A934145A2E87FB30009BF9F8 /* Exceptions for "ShoppingCartCucumberish" folder in "ShoppingCartCucumberish" target */,
+				A90C2A262E90E23800060D1D /* Exceptions for "ShoppingCartCucumberish" folder in "ShoppingCartCucumberish" target */,
 			);
 			path = ShoppingCartCucumberish;
 			sourceTree = "<group>";
 		};
 		A93414552E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				A9F2E7D02E8C2AE700F7D8AD /* Exceptions for "ShoppingCartCucumberishUITests" folder in "ShoppingCartCucumberishUITests" target */,
-			);
 			path = ShoppingCartCucumberishUITests;
 			sourceTree = "<group>";
 		};
@@ -118,18 +67,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90C29F92E90A2EA00060D1D /* Cucumberish in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E2FBFFDCD76E26C84A1239A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A94449062E908B74001E2F52 /* libCucumberish.a */,
+				A96F80D72E8DDA6D0022933D /* libCucumberish.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96094D6DA25386880B9FD475 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A93414292E87FB2E009BF9F8 = {
 			isa = PBXGroup;
 			children = (
 				A93414342E87FB2E009BF9F8 /* ShoppingCartCucumberish */,
 				A93414552E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */,
 				A93414332E87FB2E009BF9F8 /* Products */,
+				96094D6DA25386880B9FD475 /* Pods */,
+				2E2FBFFDCD76E26C84A1239A /* Frameworks */,
+				A9B550232E90F29F00A62B38 /* Features */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,8 +130,6 @@
 				A93414342E87FB2E009BF9F8 /* ShoppingCartCucumberish */,
 			);
 			name = ShoppingCartCucumberish;
-			packageProductDependencies = (
-			);
 			productName = ShoppingCartCucumberish;
 			productReference = A93414322E87FB2E009BF9F8 /* ShoppingCartCucumberish.app */;
 			productType = "com.apple.product-type.application";
@@ -173,6 +140,7 @@
 			buildPhases = (
 				A934144F2E87FB30009BF9F8 /* Frameworks */,
 				A9F2E7CF2E8C2AE700F7D8AD /* Sources */,
+				A9B5500B2E90E31A00A62B38 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -183,8 +151,6 @@
 				A93414552E87FB30009BF9F8 /* ShoppingCartCucumberishUITests */,
 			);
 			name = ShoppingCartCucumberishUITests;
-			packageProductDependencies = (
-			);
 			productName = ShoppingCartCucumberishUITests;
 			productReference = A93414522E87FB30009BF9F8 /* ShoppingCartCucumberishUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -217,6 +183,9 @@
 			);
 			mainGroup = A93414292E87FB2E009BF9F8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A90C29F72E90A2EA00060D1D /* XCRemoteSwiftPackageReference "Cucumberish" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A93414332E87FB2E009BF9F8 /* Products */;
 			projectDirPath = "";
@@ -233,6 +202,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9B5500B2E90E31A00A62B38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9B550242E90F2A500A62B38 /* Features in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +330,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -371,7 +349,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -413,6 +391,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -441,13 +420,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"HEADER_SEARCH_PATHS[arch=*]" = "${SRCROOT}/ShoppingCartCucumberishUITests/Cucumberish/**";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberishUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingCartCucumberishUITests/ShoppingCartCucumberishUITests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${TARGET_NAME}/bridging-header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,13 +442,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"HEADER_SEARCH_PATHS[arch=*]" = "${SRCROOT}/ShoppingCartCucumberishUITests/Cucumberish/**";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberishUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "ShoppingCartCucumberishUITests/ShoppingCartCucumberishUITests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${TARGET_NAME}/bridging-header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ShoppingCartCucumberish;
@@ -506,6 +487,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A90C29F72E90A2EA00060D1D /* XCRemoteSwiftPackageReference "Cucumberish" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ahmed-Ali/Cucumberish";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A90C29F82E90A2EA00060D1D /* Cucumberish */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A90C29F72E90A2EA00060D1D /* XCRemoteSwiftPackageReference "Cucumberish" */;
+			productName = Cucumberish;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A934142A2E87FB2E009BF9F8 /* Project object */;
 }

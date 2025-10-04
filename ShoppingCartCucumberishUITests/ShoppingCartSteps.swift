@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-//import Cucumberish
+import Cucumberish
 // 导入主应用模块，以便访问 UI 元素
 // 确保 'ShoppingCartCucumberish' 是您主应用 Target 的正确名称
 @testable import ShoppingCartCucumberish

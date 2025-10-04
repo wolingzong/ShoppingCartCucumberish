@@ -5,8 +5,9 @@
 //  Created by 沃霊宗 on 2025/09/28.
 //
 
-#import <Foundation/Foundation.h>
-#import "ShoppingCartCucumberishUITests-Swift.h" // 关键！
+
+//Replace CucumberishExampleUITests with the name of your swift test target
+#import "ShoppingCartCucumberishUITests-Swift.h"
 
 __attribute__((constructor))
 void CucumberishInit(void)

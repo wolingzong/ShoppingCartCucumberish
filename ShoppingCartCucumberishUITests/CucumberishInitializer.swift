@@ -2,7 +2,7 @@
 
 import Foundation
 import XCTest // 确保导入 XCTest
-//import Cucumberish
+import Cucumberish
 
 //import Foundation
 //import XCUIAutomation
@@ -33,7 +33,7 @@ import XCTest // 确保导入 XCTest
 //        }
 
 
-public class CucumberishInitializer: NSObject {
+@objc public class CucumberishInitializer: NSObject {
 
     @objc public class func CucumberishSwiftInit() {
         // 在所有测试开始前执行的全局设置
@@ -44,7 +44,14 @@ public class CucumberishInitializer: NSObject {
         
         // 2. 获取包含 "Features" 文件夹的 Bundle
         //    这行代码能确保 Cucumberish 准确找到你的 .feature 文件
+       
+        
         let bundle = Bundle(for: CucumberishInitializer.self)
+        
+
+        
+        
+        
         
         // ==================== 调试代码开始 ====================
                print("🔍 开始检查 .feature 文件是否存在...")
@@ -52,6 +59,25 @@ public class CucumberishInitializer: NSObject {
                let featureFileExtension = "feature" // 扩展名
                let directoryName = "Features"       // 所在的目录名
 
+       
+      
+        if let bundlePath = bundle.resourcePath {
+            let featuresPath = "\(bundlePath)/Features"
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: featuresPath) {
+                print("✅ Features 文件夹存在于 bundle 中：\(featuresPath)")
+                if let files = try? fileManager.contentsOfDirectory(atPath: featuresPath) {
+                    print("📦 文件夹内容：")
+                    files.forEach { print(" - \($0)") }
+                }
+            } else {
+                print("❌ Features 文件夹未找到，请确认是否为 folder reference")
+            }
+        }
+
+
+
+        
                // 尝试获取文件的完整路径
                let featurePath = bundle.path(forResource: featureFileName,
                                             ofType: featureFileExtension,
@@ -88,7 +114,7 @@ public class CucumberishInitializer: NSObject {
 
         
         
-        Cucumberish.executeFeatures(inDirectory: "", from: bundle, includeTags: nil, excludeTags: nil)
+        Cucumberish.executeFeatures(inDirectory: "Features", from: bundle, includeTags: nil, excludeTags: nil)
 
     }
 }
