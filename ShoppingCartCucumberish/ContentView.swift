@@ -23,43 +23,40 @@ struct ContentView: View {
 }
 
 
-// ===================================================================
-// 2. 单行商品视图 (ProductRow)
-//    这个视图负责展示单个商品的详细信息和“添加”按钮。
-// ===================================================================
 struct ProductRow: View {
-    
-    // 这个属性让 ProductRow 能够接收一个 Product 对象
     let product: Product
-    
+
     var body: some View {
         HStack {
-            // 商品信息
             VStack(alignment: .leading) {
                 Text(product.name)
                     .font(.headline)
+                    .accessibilityIdentifier("product_cell_\(product.name)") // ✅ 绑定在 Cell 容器上
                 Text(String(format: "$%.2f", product.price))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
-            
+
             Spacer()
-            
-            // 添加按钮
+
             Button(action: {
-                // 这里的动作可以将来用于更新购物车状态
                 print("点击了添加按钮： \(product.name)")
             }) {
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
             }
-            // 【测试关键点】为按钮设置 accessibilityIdentifier
-            .accessibilityIdentifier("add_to_cart_button")
+         
+            .accessibilityIdentifier("add_button_\(product.name)") // ✅ 唯一标识
         }
         .padding(.vertical, 8)
-        // 【测试关键点】为整个商品行（Cell）设置 accessibilityIdentifier
-        .accessibilityElement(children: .combine)
-        .accessibilityIdentifier("product_cell_\(product.name)")
+        .background(Color.clear) // ✅ 强制 Cell 成为可识别容器
+        
+        
+        // 1. 移除 .contentShape(Rectangle())
+                       // 2. 添加 .accessibilityElement(children: .contain)
+                       .accessibilityElement(children: .contain)
+                       // 3. 保留 .accessibilityIdentifier(...)
+                       .accessibilityIdentifier("product_cell_\(product.name)")
     }
 }
 

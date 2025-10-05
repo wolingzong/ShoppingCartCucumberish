@@ -8,18 +8,19 @@
   },
   {
     "id": 2,
+    "name": "Magic Mouse",
+    "price": 79.00,
+    "stock": 20,
+    "imageName": "magicmouse"
+  },
+  {
+    "id": 3,
     "name": "USB-C Cable",
     "price": 19.00,
     "stock": 50,
     "imageName": "usbc_cable"
   },
-  {
-    "id": 3,
-    "name": "Google Pixel 5",
-    "price": 699.00,
-    "stock": 20,
-    "imageName": "pixel_5"
-  },
+  
   {
     "id": 4,
     "name": "Apple Watch Series 8",

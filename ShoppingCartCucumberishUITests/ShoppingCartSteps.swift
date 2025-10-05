@@ -35,7 +35,25 @@ class MockShoppingCart {
     }
 }
 class ShoppingCartSteps {
-    
+    func dumpAllUIElements(app: XCUIApplication) {
+        print("🧩 [DEBUG] 开始遍历所有 UI 元素")
+
+        let allElements = app.descendants(matching: .any).allElementsBoundByIndex
+        print("📊 [DEBUG] 元素总数: \(allElements.count)")
+
+        for (index, element) in allElements.enumerated() {
+            print("""
+            🔹 [Element \(index)]
+            - Type: \(element.elementType)
+            - Identifier: "\(element.identifier)"
+            - Label: "\(element.label)"
+            - Frame: \(element.frame)
+            - Exists: \(element.exists)
+            """)
+        }
+
+        print("✅ [DEBUG] 元素遍历完成")
+    }
     // 定义所有与购物车相关的步骤
     func setup() {
         
@@ -48,13 +66,36 @@ class ShoppingCartSteps {
                 Given("the application is launched and the shopping cart is empty") { _, _ in
                     let app = XCUIApplication()
                             
-                 
-                    
-                            // --- 这是修改的核心 ---
-                            // 1. 获取测试包 (Test Bundle)
-                 
-                    let testBundle = Bundle(for: ShoppingCartSteps.self)
+                    // 2. 在测试包中找到 products.json 的 URL
+                    let testBundle = Bundle(for: CucumberishInitializer.self)
 
+                    print("📦 [DEBUG] 测试 Bundle 路径: \(testBundle.bundlePath)")
+                    print("📦 [DEBUG] 尝试在 Features 子目录中查找 products.json")
+
+                    guard let url = testBundle.url(forResource: "products", withExtension: "json", subdirectory: "Features") else {
+                        print("❌ [DEBUG] 未找到 products.json 文件")
+                        print("📂 [DEBUG] Features 文件夹内容如下（如果存在）：")
+
+                        if let featuresFolderURL = testBundle.url(forResource: "Features", withExtension: nil) {
+                            do {
+                                let contents = try FileManager.default.contentsOfDirectory(atPath: featuresFolderURL.path)
+                                for file in contents {
+                                    print(" - \(file)")
+                                }
+                            } catch {
+                                print("❌ [DEBUG] 无法读取 Features 文件夹内容: \(error)")
+                            }
+                        } else {
+                            print("❌ [DEBUG] Features 文件夹不存在或未打包进测试 Bundle")
+                        }
+
+                        XCTFail("❌ 无法在测试包中找到 products.json 文件！请检查 Target Membership 设置。")
+                        return
+                    }
+
+                    print("✅ [DEBUG] 成功找到 products.json 文件，路径为: \(url.path)")
+
+                    
                     
                             // 2. 在测试包中找到 products.json 的 URL
                             guard let url = testBundle.url(forResource: "products", withExtension: "json",subdirectory: "Features") else {
@@ -101,28 +142,58 @@ class ShoppingCartSteps {
             // 假设你的商品列表是一个 CollectionView 或 TableView
             // 并且每个商品Cell的 accessibility identifier 是 "product_cell_\(productName)"
             let productCell = app.cells["product_cell_\(productName)"]
-            XCTAssertTrue(productCell.waitForExistence(timeout: 5), "商品'\(productName)'不存在")
             
-            // 假设每个Cell里有一个 "add_to_cart_button"
-            let addButton = productCell.buttons["add_to_cart_button"]
-            XCTAssertTrue(addButton.exists, "添加按钮不存在")
+            
+            print("🔍 [DEBUG] 查找商品 Cell: product_cell_\(productName)")
+            print("📱 [DEBUG] 当前界面元素数量: \(app.descendants(matching: .any).count)")
+            
+            self.dumpAllUIElements(app: app)
+            
+            
+            let productIdentifier = "product_cell_\(productName)"
+                       let addButtonIdentifier = "add_button_\(productName)"
+                       
+                       // ✅ **核心修复** ✅
+                       // 不要再使用 app.cells. 我们从日志中得知，标识符在 `otherElements` 上。
+                       // 我们直接查找这个带有标识符的元素。
+                       let productElement = app.otherElements[productIdentifier]
+            
+           
+            
+            XCTAssertTrue(productElement.waitForExistence(timeout: 5), "商品'\(productName)'不存在")
+            
+            
+            // 在父元素内部查找我们正确构建了标识符的按钮
+                       let addButton = productElement.buttons[addButtonIdentifier]
+                       
+                       // ✅ **最终修复** ✅
+                       // 这里的断言信息也更正了，确保我们查找的是正确的按钮。
+                       XCTAssertTrue(addButton.exists, "断言失败: 在商品 '\(productName)' 中找不到标识符为 '\(addButtonIdentifier)' 的添加按钮。")
+                       
+            
+           
             
             addButton.tap()
         }
         
         // 那么 (Then)
-        Then("购物车中的商品数量应为 (\\d+)") { (args, userInfo) in
-            guard let expectedCountString = args?.first,
-                  let expectedCount = Int(expectedCountString) else {
-                XCTFail("未指定期望的商品数量")
-                return
-            }
-            
-            let app = XCUIApplication()
-            let cartBadge = app.staticTexts["cart_badge_count"]
-            
-            // 使用断言验证结果
-            XCTAssertEqual(cartBadge.label, "\(expectedCount)", "购物车数量不符合预期")
-        }
+                Then("the number of items in the shopping cart should be (\\d+)") { (args, userInfo) in
+                    guard let expectedCountString = args?.first,
+                          let expectedCount = Int(expectedCountString) else {
+                        XCTFail("未指定期望的商品数量")
+                        return
+                    }
+                    
+                    let app = XCUIApplication()
+//                    let cartBadge = app.staticTexts["cart_badge_count"]
+                    // 🚨 关键修正 🚨: 我们将标识符从 "cart_badge_count" 改回了 "cart_item_count_text"，以匹配您的应用代码。
+                                let cartBadge = app.staticTexts["cart_item_count_text"]
+                                
+                    
+                    
+                    // 使用断言验证结果
+                    XCTAssertEqual(cartBadge.label, "\(expectedCount)", "购物车数量不符合预期")
+                }
+        
     }
 }
