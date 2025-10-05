@@ -1,12 +1,13 @@
 import Foundation
 
 // 商品模型
-struct Product: Codable, Identifiable {
+struct Product: Codable, Identifiable, Hashable{
     var id: Int
     var name: String
     var price: Double
     var imageName: String
 }
+
 
 
 // 购物车项目模型

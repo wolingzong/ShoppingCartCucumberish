@@ -177,22 +177,30 @@ class ShoppingCartSteps {
         }
         
         // 那么 (Then)
-                Then("the number of items in the shopping cart should be (\\d+)") { (args, userInfo) in
-                    guard let expectedCountString = args?.first,
-                          let expectedCount = Int(expectedCountString) else {
-                        XCTFail("未指定期望的商品数量")
+        Then("the number of items in the shopping cart should be (\\d+)") { (args, userInfo) -> Void in
+                    guard let quantityString = args?[0], let expectedQuantity = Int(quantityString) else {
+                        XCTFail("无法解析商品名称或期望数量。")
                         return
                     }
+            let app = XCUIApplication()
+          
+                       let cartList = app.collectionViews["cart_list_view"]
+                       if !cartList.exists {
+                           // 假设购物车图标在导航栏上，并且是第一个按钮
+                           app.navigationBars.buttons.firstMatch.tap()
+                           XCTAssertTrue(cartList.waitForExistence(timeout: 2), "点击后仍未找到购物车列表 'cart_list_view'。")
+                       }
+                       
                     
-                    let app = XCUIApplication()
-//                    let cartBadge = app.staticTexts["cart_badge_count"]
-                    // 🚨 关键修正 🚨: 我们将标识符从 "cart_badge_count" 改回了 "cart_item_count_text"，以匹配您的应用代码。
-                                let cartBadge = app.staticTexts["cart_item_count_text"]
-                                
-                    
-                    
-                    // 使用断言验证结果
-                    XCTAssertEqual(cartBadge.label, "\(expectedCount)", "购物车数量不符合预期")
+            
+                       let label = app.staticTexts["cart_badge_count"].label
+                       guard let currentQuantity = Int(label.replacingOccurrences(of: "x", with: "").trimmingCharacters(in: .whitespaces)) else {
+                           XCTFail("无法将商品数量文本 '\(label)' 转换为数字。")
+                           return
+                       }
+                       
+                       XCTAssertEqual(currentQuantity, expectedQuantity, "数量 (\(currentQuantity)) 与期望值 (\(expectedQuantity)) 不符。")
+                  
                 }
         
     }
