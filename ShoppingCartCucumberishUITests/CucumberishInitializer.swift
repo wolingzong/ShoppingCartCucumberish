@@ -3,7 +3,7 @@
 import Foundation
 import XCTest // 确保导入 XCTest
 import Cucumberish
-
+import SwiftUI
 //import Foundation
 //import XCUIAutomation
 //        class CucumberishInitializer: NSObject {
@@ -37,11 +37,14 @@ import Cucumberish
 
     @objc public class func CucumberishSwiftInit() {
         // 在所有测试开始前执行的全局设置
-        
+        let shoppingSteps = ShoppingCartSteps()
+                shoppingSteps.setup()
+
+               
         // 1. 注册我们所有的步骤定义文件
         //    这会自动调用 ShoppingCartSteps 里的 setup() 方法
-        ShoppingCartSteps().setup()
-        
+//        ShoppingCartSteps().setup()
+//        
         // 2. 获取包含 "Features" 文件夹的 Bundle
         //    这行代码能确保 Cucumberish 准确找到你的 .feature 文件
        

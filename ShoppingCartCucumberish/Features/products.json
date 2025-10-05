@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "MacBook Pro",
+    "price": 1299.99,
+    "stock": 10,
+    "imageName": "macbook_pro"
+  },
+  {
+    "id": 2,
+    "name": "USB-C Cable",
+    "price": 19.00,
+    "stock": 50,
+    "imageName": "usbc_cable"
+  },
+  {
+    "id": 3,
+    "name": "Google Pixel 5",
+    "price": 699.00,
+    "stock": 20,
+    "imageName": "pixel_5"
+  },
+  {
+    "id": 4,
+    "name": "Apple Watch Series 8",
+    "price": 399.00,
+    "stock": 15,
+    "imageName": "apple_watch_8"
+  },
+  {
+    "id": 5,
+    "name": "AirPods Pro",
+    "price": 249.00,
+    "stock": 30,
+    "imageName": "airpods_pro"
+  }
+]

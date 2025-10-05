@@ -14,8 +14,8 @@
             filePath = "ShoppingCartCucumberishUITests/ShoppingCartSteps.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
@@ -24,14 +24,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "327BC9D1-39CB-4085-86CD-F39BD05B370A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShoppingCartCucumberishUITests/ShoppingCartSteps.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "ShoppingCartCucumberishUITests/ShoppingCartSteps.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "ShoppingCartCucumberishUITests/ShoppingCartSteps.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "setup()"
             landmarkType = "7">
          </BreakpointContent>

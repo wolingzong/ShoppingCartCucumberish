@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A90C29F92E90A2EA00060D1D /* Cucumberish in Frameworks */ = {isa = PBXBuildFile; productRef = A90C29F82E90A2EA00060D1D /* Cucumberish */; };
+		A952334E2E920998006887DF /* Features in Resources */ = {isa = PBXBuildFile; fileRef = A9B550232E90F29F00A62B38 /* Features */; };
 		A9B550242E90F2A500A62B38 /* Features in Resources */ = {isa = PBXBuildFile; fileRef = A9B550232E90F29F00A62B38 /* Features */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A952334E2E920998006887DF /* Features in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,13 +254,13 @@
 				INFOPLIST_FILE = ShoppingCartCucumberish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -279,13 +281,13 @@
 				INFOPLIST_FILE = ShoppingCartCucumberish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = watson.ShoppingCartCucumberish;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -39,17 +39,58 @@ class ShoppingCartSteps {
     // 定义所有与购物车相关的步骤
     func setup() {
         
+        
+        Given("the app is launched") { _, _ in
+            let app = XCUIApplication()
+            app.launch()
+        }
+
+                Given("the application is launched and the shopping cart is empty") { _, _ in
+                    let app = XCUIApplication()
+                            
+                 
+                    
+                            // --- 这是修改的核心 ---
+                            // 1. 获取测试包 (Test Bundle)
+                 
+                    let testBundle = Bundle(for: ShoppingCartSteps.self)
+
+                    
+                            // 2. 在测试包中找到 products.json 的 URL
+                            guard let url = testBundle.url(forResource: "products", withExtension: "json",subdirectory: "Features") else {
+                                XCTFail("❌ 无法在测试包中找到 products.json 文件！请检查 Target Membership 设置。")
+                                return
+                            }
+                            
+                            // 3. 将文件内容读取为字符串
+                            guard let jsonString = try? String(contentsOf: url, encoding: .utf8) else {
+                                XCTFail("❌ 无法将 products.json 读取为字符串！")
+                                return
+                            }
+                            
+                            // 4. 将整个 JSON 字符串放入环境变量
+                            app.launchEnvironment["UITestProductsJSON"] = jsonString
+                            // --- 核心修改结束 ---
+                            
+                            app.launch()
+                            
+                            // (可选) 确保购物车是空的
+                            let clearButton = app.buttons["Clear Cart"]
+                            if clearButton.exists {
+                                clearButton.tap()
+                            }
+                }
         // 假如 (Given)
 
-        // 场景一：将商品添加到空的购物车
-                Given("the application is launched and the shopping cart is empty") { _, _ in
-                    // 在这里实现清空购物车的逻辑
-                    print("场景一：将商品添加到空的购物车...")
-                    MockShoppingCart.shared.clear()
-                }
+//        // 场景一：将商品添加到空的购物车
+//                Given("the application is launched and the shopping cart is empty") { _, _ in
+//                    // 在这里实现清空购物车的逻辑
+//                    print("场景一：将商品添加到空的购物车...")
+//                    MockShoppingCart.shared.clear()
+//                }
         
         // 当 (When)
-        When("我将名为\"(.*?)\"的商品添加到购物车") { (args, userInfo) in
+        When("I add an item named \"(.*?)\" to the shopping cart") { (args, userInfo) in
             guard let productName = args?.first else {
                 XCTFail("未指定商品名称")
                 return
