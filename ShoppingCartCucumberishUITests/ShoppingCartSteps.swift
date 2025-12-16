@@ -57,7 +57,7 @@ class ShoppingCartSteps {
     // 定义所有与购物车相关的步骤
     func setup() {
         
-        
+       
         Given("the app is launched") { _, _ in
             let app = XCUIApplication()
             app.launch()
@@ -177,30 +177,50 @@ class ShoppingCartSteps {
         }
         
         // 那么 (Then)
-        Then("the number of items in the shopping cart should be (\\d+)") { (args, userInfo) -> Void in
-                    guard let quantityString = args?[0], let expectedQuantity = Int(quantityString) else {
-                        XCTFail("无法解析商品名称或期望数量。")
+        
+        Then(#"the (?:number of items in the )?shopping cart should (?:be|contain) (\d+)(?: unique item(?:s)?)?"#) { (args, _) in
+                    guard let expectedCountString = args?.first, let expectedCount = Int(expectedCountString) else {
+                        XCTFail("❌ 期望数量丢失或不是一个有效的数字。")
                         return
                     }
-            let app = XCUIApplication()
-          
-                       let cartList = app.collectionViews["cart_list_view"]
-                       if !cartList.exists {
-                           // 假设购物车图标在导航栏上，并且是第一个按钮
-                           app.navigationBars.buttons.firstMatch.tap()
-                           XCTAssertTrue(cartList.waitForExistence(timeout: 2), "点击后仍未找到购物车列表 'cart_list_view'。")
-                       }
-                       
                     
-            
-                       let label = app.staticTexts["cart_badge_count"].label
-                       guard let currentQuantity = Int(label.replacingOccurrences(of: "x", with: "").trimmingCharacters(in: .whitespaces)) else {
-                           XCTFail("无法将商品数量文本 '\(label)' 转换为数字。")
-                           return
-                       }
-                       
-                       XCTAssertEqual(currentQuantity, expectedQuantity, "数量 (\(currentQuantity)) 与期望值 (\(expectedQuantity)) 不符。")
-                  
+                    print("✔️ [VERIFY] 验证购物车中应有 \(expectedCount) 种商品")
+            let app = XCUIApplication()
+                    // 1. 点击购物车按钮
+                    let cartButton = app.buttons["cart_button"]
+                    XCTAssertTrue(cartButton.waitForExistence(timeout: 5), "🚨 购物车按钮 'cart_button' 未找到！请再次确认已彻底清理构建缓存并重新编译。")
+                    cartButton.tap()
+                    
+                    // 2. 等待并验证购物车列表视图是否存在
+                    let cartList = app.collectionViews["cart_list_view"]
+                    XCTAssertTrue(cartList.waitForExistence(timeout: 5), "🚨 购物车列表 'cart_list_view' 未找到！请确保已在 ShoppingCartView 中正确设置。")
+                    
+                    // 3. 验证购物车中独立商品行（Cell）的数量
+                    XCTAssertEqual(cartList.cells.count, expectedCount, "期望购物车中有 \(expectedCount) 种商品, 但实际找到了 \(cartList.cells.count) 种。")
+                }
+                
+                And("the quantity of the item named \"(.*)\" should be (\\d+)") { (args, _) in
+                    guard let itemName = args?.first, let expectedQuantityString = args?[1], let expectedQuantity = Int(expectedQuantityString) else {
+                        XCTFail("❌ 无效的参数：无法解析商品名称或期望数量。")
+                        return
+                    }
+                    
+                    print("✔️ [VERIFY] 验证商品 '\(itemName)' 的数量应为 \(expectedQuantity)")
+                    let app = XCUIApplication()
+                    // 此时购物车页面应该已经被上一个步骤打开了
+                    let quantityLabelIdentifier = "quantity_label_\(itemName)"
+                    let quantityLabel = app.staticTexts[quantityLabelIdentifier]
+                    
+                    XCTAssertTrue(quantityLabel.waitForExistence(timeout: 5), "🚨 未找到商品 '\(itemName)' 的数量标签。标识符: '\(quantityLabelIdentifier)'")
+                    
+                    // 从 "Quantity: 2" 这样的文本中提取数字
+                    let labelText = quantityLabel.label
+                    guard let quantity = Int(labelText.components(separatedBy: .decimalDigits.inverted).joined()) else {
+                        XCTFail("无法从标签文本 '\(labelText)' 中解析出数量。")
+                        return
+                    }
+
+                    XCTAssertEqual(quantity, expectedQuantity, "商品 '\(itemName)' 的期望数量是 \(expectedQuantity), 但实际显示为 \(quantity)。")
                 }
         
     }

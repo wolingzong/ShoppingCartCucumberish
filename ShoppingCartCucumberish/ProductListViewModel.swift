@@ -1,72 +1,68 @@
 import Foundation
 import Combine
 
-
-
-class ProductListViewModel: ObservableObject, Observable {
+// ViewModel 现在是一个 ObservableObject，可以被 SwiftUI 视图观察
+class ProductListViewModel: ObservableObject {
     
-    // MARK: - Published Properties for UI
-    
-    // 商品列表数据源
+    // @Published 属性包装器会在属性值改变时，自动通知所有观察它的视图进行刷新
     @Published var products: [Product] = []
-    
-    // 购物车内容，使用字典存储商品及其数量 [商品: 数量]
-    @Published var cartItems: [Product: Int] = [:]
-    
-    // 购物车中所有商品的总件数（用于右上角角标）
-    @Published var totalItemCount: Int = 0
-    
-    // 购物车中不同商品种类的数量（用于BDD测试）
-    @Published var uniqueItemCount: Int = 0
+    @Published var cart: [Product: Int] = [:]
 
-    
-    // MARK: - Public Methods
-    
-    // 加载商品数据
-    func loadProducts() {
-        // 为了测试，我们确保这里包含了所有测试用例中需要的商品
-        self.products = [
-            Product(id: 1, name: "MacBook Pro", price: 1299.99, imageName: "laptopcomputer"),
-            Product(id: 2, name: "Magic Mouse", price: 79.00, imageName: "magicmouse"),
-            Product(id: 3, name: "USB-C Cable", price: 19.00, imageName: "cable.connector"),
-            Product(id: 4, name: "iPhone 15", price: 799.00, imageName: "iphone"),
-            Product(id: 5, name: "Apple Watch", price: 399.00, imageName: "applewatch"),
-            Product(id: 6, name: "iPad Air", price: 599.00, imageName: "ipad")
-        ]
+    // 计算属性：购物车中商品的总数量（例如，2个A，1个B，总数是3）
+    var totalItemCount: Int {
+        cart.values.reduce(0, +)
     }
     
+    // 计算属性：购物车中商品的种类数量（例如，2个A，1个B，种类是2）
+    var uniqueItemCount: Int {
+        cart.keys.count
+    }
+
+    // 用于加载商品数据的方法
+    func loadProducts() {
+        // 优先从 UI 测试环境中获取 JSON 字符串
+        if let jsonString = ProcessInfo.processInfo.environment["UITestProductsJSON"] {
+            print("ℹ️ [ViewModel] 正在从 UI 测试环境加载 products.json...")
+            if let data = jsonString.data(using: .utf8) {
+                let decoder = JSONDecoder()
+                if let decodedProducts = try? decoder.decode([Product].self, from: data) {
+                    self.products = decodedProducts
+                    return
+                }
+            }
+        }
+        
+        // 如果不处于 UI 测试环境，则从项目的 Bundle 中加载
+        print("ℹ️ [ViewModel] 正在从 App Bundle 加载 products.json...")
+        if let url = Bundle.main.url(forResource: "products", withExtension: "json") {
+            if let data = try? Data(contentsOf: url) {
+                let decoder = JSONDecoder()
+                if let decodedProducts = try? decoder.decode([Product].self, from: data) {
+                    self.products = decodedProducts
+                }
+            }
+        }
+    }
+
     // 添加商品到购物车
     func addToCart(product: Product) {
-        cartItems[product, default: 0] += 1
-        print("已添加 \(product.name) 到购物车。当前数量: \(cartItems[product]!)")
-        updateCartCounts()
+        cart[product, default: 0] += 1
+        print("🛒 [ViewModel] 已添加 '\(product.name)'。当前购物车: \(cart)")
     }
-    
-    // 清空购物车（用于BDD测试的 "Given" 步骤）
-    func clearCart() {
-        cartItems = [:]
-        print("购物车已清空。")
-        updateCartCounts()
-    }
-    
-    // 获取指定名称商品的数量（用于BDD测试的 "Then" 步骤）
-    func quantity(for productName: String) -> Int {
-        // 查找购物车中是否有该商品
-        guard let productInCart = cartItems.keys.first(where: { $0.name == productName }) else {
-            return 0
+
+    // 从购物车移除商品
+    func removeFromCart(product: Product) {
+        if let count = cart[product], count > 1 {
+            cart[product] = count - 1
+        } else {
+            cart.removeValue(forKey: product)
         }
-        // 返回该商品的数量
-        return cartItems[productInCart, default: 0]
+        print("🛒 [ViewModel] 已移除 '\(product.name)'。当前购物车: \(cart)")
     }
-    
-    // MARK: - Private Helper
-    
-    // 每次购物车变动时，更新总数量和种类数量
-    private func updateCartCounts() {
-        // 计算总件数 (e.g., 2个A, 1个B -> 总数是3)
-        totalItemCount = cartItems.values.reduce(0, +)
-        
-        // 计算种类数 (e.g., 2个A, 1个B -> 种类是2)
-        uniqueItemCount = cartItems.keys.count
+
+    // 清空购物车
+    func clearCart() {
+        cart.removeAll()
+        print("🗑️ [ViewModel] 购物车已清空。")
     }
 }

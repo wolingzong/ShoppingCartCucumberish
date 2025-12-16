@@ -14,15 +14,14 @@ struct ProductListView: View {
             .navigationTitle("商品列表")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    // 点击购物车图标，导航到购物车视图
-                    // 注意：确保这里的 ShoppingCartView 是您购物车视图的正确名称
+                    // 使用 NavigationLink 导航到购物车视图
                     NavigationLink(destination: ShoppingCartView().environmentObject(viewModel)) {
+                        // ZStack 用于将角标叠加在购物车图标之上
                         ZStack(alignment: .topTrailing) {
-                            // 购物车图标
                             Image(systemName: "cart")
                                 .font(.title2)
 
-                            // 仅当购物车数量大于0时，显示红色角标
+                            // 仅当购物车内商品总数大于0时，才显示红色角标
                             if viewModel.totalItemCount > 0 {
                                 Text("\(viewModel.totalItemCount)")
                                     .font(.caption2)
@@ -32,18 +31,20 @@ struct ProductListView: View {
                                     .background(Color.red)
                                     .clipShape(Circle())
                                     .offset(x: 12, y: -12)
+                                    // 为角标文本也添加一个标识符，方便单独验证数量
                                     .accessibilityIdentifier("cart_item_count_text")
                             }
                         }
-                        // ▼▼▼▼▼ 关键修正 ▼▼▼▼▼
-                        // 将标识符放在 ZStack 上，确保整个可点击区域都能被测试框架识别
-                        .accessibilityIdentifier("cart_icon_button")
-                        // ▲▲▲▲▲ 修正结束 ▲▲▲▲▲
                     }
+                    // ▼▼▼▼▼ 关键修复 ▼▼▼▼▼
+                    // 为整个 NavigationLink 添加可访问性标识符。
+                    // 这是 UI 测试能够找到并点击此按钮的核心。
+                    .accessibilityIdentifier("cart_button")
+                    // ▲▲▲▲▲ 关键修复 ▲▲▲▲▲
                 }
             }
         }
-        // 视图出现时，让 viewModel 加载商品，这是一个很好的实践！
+        // 当视图首次出现时，让 viewModel 加载商品数据
         .onAppear {
             viewModel.loadProducts()
         }
